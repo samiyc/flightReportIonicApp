@@ -1,0 +1,55 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+# Temporary files and logs
+*~
+*.sw[mnpcod]
+*.tmp
+.tmp
+*.tmp.*
+*.log
+log.txt
+npm-debug.log*
+
+# Editor files
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+UserInterfaceState.xcuserstate
+
+# System files
+$RECYCLE.BIN/
+
+# IDE and editor config
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Ionic specific directories and files
+/.ionic
+/.sass-cache
+/.sourcemaps
+/.versions
+
+# Build output
+/www
+/build
+/dist
+/coverage
+
+# Dependencies
+/node_modules
+/bower_components
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# dotenv environment variables file
+.env

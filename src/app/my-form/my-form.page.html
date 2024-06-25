@@ -1,0 +1,94 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Report a new issue</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form (ngSubmit)="onSubmit()">
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>Issue Description</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item>
+                    <ion-label position="floating" class="green-label">*** Describe the issue here ***</ion-label>
+                    <ion-textarea [(ngModel)]="formData.text" name="text" rows="2" required></ion-textarea>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>Issue Details</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item>
+                    <ion-label>Part of the plane concerned by the issue:</ion-label>
+                </ion-item>
+                <ion-radio-group [(ngModel)]="formData.radio" name="radio">
+                    <ion-item>
+                        <ion-label>Pilot / crew</ion-label>
+                        <ion-radio slot="start" value="crew"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Hardware issue</ion-label>
+                        <ion-radio slot="start" value="hard"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Software issue</ion-label>
+                        <ion-radio slot="start" value="soft"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Other</ion-label>
+                        <ion-radio slot="start" value="other"></ion-radio>
+                    </ion-item>
+                </ion-radio-group>
+
+                <ion-item>
+                    <ion-label position="floating" class="green-label">*** explain the origin of the issue here ***</ion-label>
+                    <ion-textarea [(ngModel)]="formData.origin" name="origin" rows="2" required></ion-textarea>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>Resolution Information</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item>
+                    <ion-label position="stacked">Onboard notices were helpful to resolve the issue</ion-label>
+                    <ion-select [(ngModel)]="formData.notice" name="notice" placeholder="Select one">
+                        <ion-select-option value="yes">Very helpful</ion-select-option>
+                        <ion-select-option value="half">Helpful</ion-select-option>
+                        <ion-select-option value="no">Not helpful</ion-select-option>
+                        <ion-select-option value="bad">Incorrect information</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>Maintenance Information</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item>
+                    <ion-label>A certified on-flight system engineer is required to fix the issue</ion-label>
+                    <ion-checkbox slot="start" [(ngModel)]="formData.checkExpert" name="checkExpert"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label>The issue led to an emergency landing</ion-label>
+                    <ion-checkbox slot="start" [(ngModel)]="formData.checkLanding" name="checkLanding"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label>The wings need to be checked (heavy turbulence)</ion-label>
+                    <ion-checkbox slot="start" [(ngModel)]="formData.checkTurbulence" name="checkLanding"></ion-checkbox>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-button expand="full" type="submit">Submit</ion-button>
+    </form>
+</ion-content>
